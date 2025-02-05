@@ -1,5 +1,8 @@
 package com.example.bayernmunichproject.model.responseDto;
 
+import lombok.Data;
+
+@Data
 public class PerformanceStatsResponseDto {
     private Long id;
     private Integer goalsScored;

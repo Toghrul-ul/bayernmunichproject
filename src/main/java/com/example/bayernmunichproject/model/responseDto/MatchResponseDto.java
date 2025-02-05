@@ -2,9 +2,10 @@ package com.example.bayernmunichproject.model.responseDto;
 
 import com.example.bayernmunichproject.enums.MatchResult;
 import com.example.bayernmunichproject.enums.MatchType;
+import lombok.Data;
 
 import java.time.LocalDateTime;
-
+@Data
 public class MatchResponseDto {
     private Long id;
     private String opponent;

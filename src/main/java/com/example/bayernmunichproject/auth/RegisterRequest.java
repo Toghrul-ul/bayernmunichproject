@@ -14,9 +14,9 @@ public class RegisterRequest {
     private String firstName;
     private String lastName;
     private String userName;
-    @ValidPassword(
-            message = "Password must contain minimum 8 characters, uppercase," +
-                    " lowercase, special character and digit! ")
+//    @ValidPassword(
+//            message = "Password must contain minimum 8 characters, uppercase," +
+//                    " lowercase, special character and digit! ")
     private String password;
     private RoleEnum role;
 }

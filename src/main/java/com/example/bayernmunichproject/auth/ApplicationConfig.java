@@ -1,5 +1,6 @@
 package com.example.bayernmunichproject.auth;
 
+import com.example.bayernmunichproject.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.requestDto;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class ClubRequestDto {
     private String name;
     private Date foundedDate;

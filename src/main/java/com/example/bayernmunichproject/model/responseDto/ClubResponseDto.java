@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.responseDto;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class ClubResponseDto {
     private Long id;
     private String name;

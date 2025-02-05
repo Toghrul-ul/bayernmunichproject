@@ -1,5 +1,7 @@
 package com.example.bayernmunichproject.auth;
 
+import com.example.bayernmunichproject.exception.NotFoundException;
+import com.example.bayernmunichproject.exception.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +26,7 @@ public class AuthenticationService {
                 .role(request.getRole())
                 .build();
         if (repository.existsByUserName(request.getUserName())) {
-            throw new UserNameExistException("User name already exists. Choose, new user name");
+            throw new UserAlreadyExistsException("User name already exists. Choose, new user name");
         }
         repository.save(user);
         var jwtToken = jwtService.generateToken(user);

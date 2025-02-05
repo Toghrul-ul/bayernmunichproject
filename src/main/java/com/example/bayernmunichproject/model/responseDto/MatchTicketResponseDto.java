@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.responseDto;
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public class MatchTicketResponseDto {
     private Long id;
     private String ticketType;

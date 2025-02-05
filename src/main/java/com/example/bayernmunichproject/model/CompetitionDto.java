@@ -1,14 +1,14 @@
-//package com.example.bayernmunichproject.model;
-//
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-//
+package com.example.bayernmunichproject.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 //@Data
 //@AllArgsConstructor
 //@NoArgsConstructor
-//public class CompetitionDto {
+public class CompetitionDto {
 //    private Long id;
 //    private String name;
 //    private String season;
-//}
+}

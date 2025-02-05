@@ -1,7 +1,6 @@
 package com.example.bayernmunichproject.mapper;
 
 import com.example.bayernmunichproject.dao.ClubEntity;
-import com.example.bayernmunichproject.model.ClubDto;
 import com.example.bayernmunichproject.model.requestDto.ClubRequestDto;
 import com.example.bayernmunichproject.model.responseDto.ClubResponseDto;
 import org.mapstruct.Mapper;
@@ -11,12 +10,12 @@ import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface ClubMapper {
-    @Mapping(source = "stadium.name", target = "stadiumName")
-    ClubResponseDto toResponseDto(ClubEntity entity);
+//    @Mapping(source = "stadium.name", target = "stadiumName")
+    ClubResponseDto toClubResponseDto(ClubEntity entity);
 
-    ClubEntity toEntity(ClubRequestDto dto);
+    ClubEntity toClubEntity(ClubRequestDto dto);
 
-    void mapForUpdate(@MappingTarget ClubEntity entity, ClubRequestDto dto);
+    void mapForUpdate(ClubRequestDto dto, @MappingTarget ClubEntity entity);
 }
 
 //@Mapper(componentModel = "spring")

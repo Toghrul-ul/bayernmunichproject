@@ -1,13 +1,13 @@
-//package com.example.bayernmunichproject.model;
-//
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-//
+package com.example.bayernmunichproject.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 //@Data
 //@AllArgsConstructor
 //@NoArgsConstructor
-//public class LeagueStandingDto {
+public class LeagueStandingDto {
 //    private Long id;
 //    private int position;
 //    private int matchesPlayed;
@@ -17,5 +17,5 @@
 //    private int points;
 //    private Long clubId;
 //    private Long competitionId;
-//}
+}
 //

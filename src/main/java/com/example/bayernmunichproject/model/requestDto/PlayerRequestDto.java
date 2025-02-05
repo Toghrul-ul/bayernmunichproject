@@ -2,7 +2,9 @@ package com.example.bayernmunichproject.model.requestDto;
 
 import com.example.bayernmunichproject.enums.PlayerPosition;
 import com.example.bayernmunichproject.enums.PlayerStatus;
+import lombok.Data;
 
+@Data
 public class PlayerRequestDto {
     private String name;
     private Integer age;

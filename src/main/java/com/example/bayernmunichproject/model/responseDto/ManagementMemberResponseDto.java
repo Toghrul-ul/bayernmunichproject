@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.responseDto;
 
 import com.example.bayernmunichproject.enums.ManagementRole;
+import lombok.Data;
 
+@Data
 public class ManagementMemberResponseDto {
     private Long id;
     private String name;

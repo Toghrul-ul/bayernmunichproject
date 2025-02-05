@@ -2,9 +2,10 @@ package com.example.bayernmunichproject.repository;
 
 import com.example.bayernmunichproject.dao.StadiumEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-
+@Repository
 public interface StadiumRepository extends JpaRepository<StadiumEntity, Long> {
 
     Optional<StadiumEntity> findByClubId(Long clubId);

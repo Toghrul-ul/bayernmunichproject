@@ -1,6 +1,5 @@
 package com.example.bayernmunichproject.dao;
 
-import com.example.bayernmunichproject.enums.AchievementType;
 import com.example.bayernmunichproject.enums.PlayerPosition;
 import com.example.bayernmunichproject.enums.PlayerStatus;
 import jakarta.persistence.*;
@@ -25,21 +24,25 @@ public class PlayerEntity {
     private String name;
     private Integer age;
     private String nationality;
-    private String position; // Goalkeeper, Defender, ...
 
-    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
-    private List<PlayerStatisticEntity> statistics;
 
-    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
-    private List<CareerHighlightEntity> careerHighlights;
-
-    @ManyToOne
-    @JoinColumn(name = "squad_id")
-    private SquadEntity squad; // Reference to the Squad this player belongs to
+//TODO PlayerPosition class is exists
+//    private String position; // Goalkeeper, Defender, ...
 
     //all following -> table
     @Enumerated(EnumType.STRING)
     private PlayerPosition playerPosition;
+
+//    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
+//    private List<PlayerStatisticEntity> statistics;
+//
+//    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
+//    private List<CareerHighlightEntity> careerHighlights;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "squad_id")
+//    private SquadEntity squad; // Reference to the Squad this player belongs to
+
 
     @Enumerated(EnumType.STRING)
     private PlayerStatus playerStatus;

@@ -2,8 +2,10 @@ package com.example.bayernmunichproject.repository;
 
 import com.example.bayernmunichproject.dao.SquadEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Repository
 public interface SquadRepository extends JpaRepository<SquadEntity, Long> {
 
     List<SquadEntity> findByClubId(Long clubId);

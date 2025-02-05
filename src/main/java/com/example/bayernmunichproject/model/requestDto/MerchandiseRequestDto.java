@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.requestDto;
 
 import com.example.bayernmunichproject.enums.MerchandiseType;
+import lombok.Data;
 
+@Data
 public class MerchandiseRequestDto {
     private String name;
     private String description;

@@ -10,13 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.example.bayernmunichproject.auth.PermissionsEnum.*;
-import static com.example.bayernmunichproject.auth.RoleEnum.ADMIN;
-import static com.example.bayernmunichproject.auth.RoleEnum.USER;
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
-import static org.springframework.http.HttpMethod.PUT;
-import static org.springframework.http.HttpMethod.DELETE;
+
 
 @Configuration
 @EnableWebSecurity

@@ -1,81 +1,76 @@
-//package com.example.bayernmunichproject.service.impl;
-//
-//import com.example.bayernmunichproject.dao.AchievementEntity;
-//import com.example.bayernmunichproject.dao.ClubEntity;
-//import com.example.bayernmunichproject.dao.LeagueStandingEntity;
-//import com.example.bayernmunichproject.dao.StadiumEntity;
-//import com.example.bayernmunichproject.mapper.AchievementMapper;
-//import com.example.bayernmunichproject.mapper.ClubMapper;
-//import com.example.bayernmunichproject.mapper.LeagueStandingMapper;
-//import com.example.bayernmunichproject.mapper.PerformanceStatsMapper;
-//import com.example.bayernmunichproject.model.ClubDto;
-//import com.example.bayernmunichproject.model.LeagueStandingDto;
-//import com.example.bayernmunichproject.model.PerformanceStatsDto;
-//import com.example.bayernmunichproject.repository.*;
-//import com.example.bayernmunichproject.service.ClubService;
-//import jakarta.persistence.EntityNotFoundException;
-//import lombok.RequiredArgsConstructor;
-//import lombok.extern.slf4j.Slf4j;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//
-//@Service
-//@Slf4j
-//@RequiredArgsConstructor
-//public class ClubServiceImpl implements ClubService {
-//
-//    private final ClubRepository clubRepository;
+package com.example.bayernmunichproject.service.impl;
+
+import com.example.bayernmunichproject.dao.ClubEntity;
+import com.example.bayernmunichproject.exception.NotFoundException;
+import com.example.bayernmunichproject.mapper.ClubMapper;
+import com.example.bayernmunichproject.model.requestDto.ClubRequestDto;
+import com.example.bayernmunichproject.model.responseDto.ClubResponseDto;
+import com.example.bayernmunichproject.repository.ClubRepository;
+import com.example.bayernmunichproject.service.ClubService;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@Slf4j
+@RequiredArgsConstructor
+public class ClubServiceImpl implements ClubService {
+
+    private final ClubRepository clubRepository;
+    private final ClubMapper clubMapper;
 //    private final AchievementRepository achievementRepository;
 //    private final StadiumRepository stadiumRepository;
 //    private final LeagueStandingRepository leagueStandingRepository;
 //    private final PerformanceStatsRepository performanceStatsRepository;
-//    private final ClubMapper clubMapper;
 //    private final AchievementMapper achievementMapper;
 //    private final LeagueStandingMapper leagueStandingMapper;
 //    private final PerformanceStatsMapper performanceStatsMapper;
-//
-//
-//    @Override
-//    public ClubDto getClub(Long id) {
-//        log.info("Fetching club with ID: {}", id);
-//        ClubEntity clubEntity = clubRepository.findById(id)
-//                .orElseThrow(() -> new EntityNotFoundException("Club not found with ID: " + id));
-//        return clubMapper.toDto(clubEntity);
-//    }
-//
-//    @Override
-//    public List<ClubDto> getClubs() {
-//        log.info("Fetching all clubs");
-//        return clubRepository.findAll().stream()
-//                .map(clubMapper::toDto)
-//                .toList();
-//    }
-//
-//    @Override
-//    public void saveClub(ClubDto clubDto) {
-//        ClubEntity clubEntity = clubMapper.toEntity(clubDto);
-//        log.info("Saving new club: {}", clubDto.getName());
-//        clubRepository.save(clubEntity);
-//    }
-//
-//    @Override
-//    public void editClub(ClubDto clubDto, Long id) {
-//        ClubEntity existingClub = clubRepository.findById(id)
-//                .orElseThrow(() -> new EntityNotFoundException("Club not found with ID: " + id));
-//        log.info("Updating club with ID: {}", id);
-//        clubMapper.mapForUpdate(existingClub, clubDto);
-//        clubRepository.save(existingClub);
-//    }
-//
-//    @Override
-//    public void deleteClub(Long id) {
-//        log.info("Deleting club with ID: {}", id);
-//        if (!clubRepository.existsById(id)) {
-//            throw new EntityNotFoundException("Club not found with ID: " + id);
-//        }
-//        clubRepository.deleteById(id);
-//    }
+
+    @Override
+    public ClubResponseDto getClub(Long id) {
+        ClubEntity clubEntity = clubRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Club not found with ID: " + id));
+        log.info("Fetching club with ID: {}", id);
+        return clubMapper.toClubResponseDto(clubEntity);
+    }
+
+    @Override
+    public List<ClubResponseDto> getClubs() {
+        log.info("Fetching all clubs");
+        return clubRepository.findAll().stream()
+                .map(clubMapper::toClubResponseDto)
+                .toList();
+    }
+
+    @Override
+    public void saveClub(ClubRequestDto clubRequestDto) {
+        ClubEntity clubEntity = clubMapper.toClubEntity(clubRequestDto);
+        clubRepository.save(clubEntity);
+        log.info("Saving new club: {}", clubEntity.getName());
+    }
+
+    @Override
+    public void updateClub( Long id,ClubRequestDto clubRequestDto) {
+        log.info("Updating club with ID: {}", id);
+        ClubEntity existingClub = clubRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Club not found with ID: " + id));
+        clubMapper.mapForUpdate(clubRequestDto, existingClub);
+        clubRepository.save(existingClub);
+        log.info("Updated club with ID: {}", id);
+    }
+
+    @Override
+    public void deleteClub(Long id) {
+        log.info("Deleting club with ID: {}", id);
+        if (!clubRepository.existsById(id)) {
+            throw new EntityNotFoundException("Club not found with ID: " + id);
+        }
+        clubRepository.deleteById(id);
+        log.info("Deleted club with ID: {}", id);
+    }
 //
 //    @Override
 //    public ClubDto assignAchievementToClub(Long clubId, Long achievementId) {
@@ -115,6 +110,6 @@
 //        return performanceStatsRepository.findByClubId(clubId).stream()
 //                .map(performanceStatsMapper::toDto)
 //                .toList();
-//    }
-//}
-//
+//     }
+}
+

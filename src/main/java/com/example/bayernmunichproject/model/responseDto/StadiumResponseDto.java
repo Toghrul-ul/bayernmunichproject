@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.responseDto;
 
 import com.example.bayernmunichproject.enums.StadiumType;
+import lombok.Data;
 
+@Data
 public class StadiumResponseDto {
     private Long id;
     private String name;

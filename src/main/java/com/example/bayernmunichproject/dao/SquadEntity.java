@@ -1,6 +1,5 @@
 package com.example.bayernmunichproject.dao;
 
-import com.example.bayernmunichproject.enums.AchievementType;
 import com.example.bayernmunichproject.enums.Formation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

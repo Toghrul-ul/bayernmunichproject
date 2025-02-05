@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.responseDto;
 
 import com.example.bayernmunichproject.enums.HighlightType;
+import lombok.Data;
 
+@Data
 public class CareerHighlightResponseDto {
     private Long id;
     private String title;

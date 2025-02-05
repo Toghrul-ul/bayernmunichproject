@@ -1,5 +1,8 @@
 package com.example.bayernmunichproject.model.requestDto;
 
+import lombok.Data;
+
+@Data
 public class MatchTicketRequestDto {
     private String ticketType;
     private Double price;

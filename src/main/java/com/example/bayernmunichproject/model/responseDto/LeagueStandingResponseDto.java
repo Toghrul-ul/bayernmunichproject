@@ -1,7 +1,9 @@
 package com.example.bayernmunichproject.model.responseDto;
 
 import com.example.bayernmunichproject.enums.PositionStatus;
+import lombok.Data;
 
+@Data
 public class LeagueStandingResponseDto {
     private Long id;
     private Integer position;

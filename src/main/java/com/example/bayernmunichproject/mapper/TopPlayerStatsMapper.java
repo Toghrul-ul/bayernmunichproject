@@ -1,25 +1,24 @@
 package com.example.bayernmunichproject.mapper;
 
 import com.example.bayernmunichproject.dao.TopPlayerStatsEntity;
-import com.example.bayernmunichproject.model.TopPlayerStatsDto;
 import com.example.bayernmunichproject.model.requestDto.TopPlayerStatsRequestDto;
 import com.example.bayernmunichproject.model.responseDto.TopPlayerStatsResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+//@Mapper(componentModel = "spring")
 public interface TopPlayerStatsMapper {
-    @Mapping(source = "player.name", target = "playerName")
-    @Mapping(source = "club.name", target = "clubName")
-    @Mapping(source = "competition.name", target = "competitionName")
-    TopPlayerStatsResponseDto toResponseDto(TopPlayerStatsEntity entity);
-
-    @Mapping(target = "id", ignore = true)
-    TopPlayerStatsEntity toEntity(TopPlayerStatsRequestDto dto);
-
-    @Mapping(target = "id", ignore = true)
-    void mapForUpdate(@MappingTarget TopPlayerStatsEntity entity, TopPlayerStatsRequestDto dto);
+//    @Mapping(source = "player.name", target = "playerName")
+//    @Mapping(source = "club.name", target = "clubName")
+//    @Mapping(source = "competition.name", target = "competitionName")
+//    TopPlayerStatsResponseDto toResponseDto(TopPlayerStatsEntity entity);
+//
+//    @Mapping(target = "id", ignore = true)
+//    TopPlayerStatsEntity toEntity(TopPlayerStatsRequestDto dto);
+//
+//    @Mapping(target = "id", ignore = true)
+//    void mapForUpdate(@MappingTarget TopPlayerStatsEntity entity, TopPlayerStatsRequestDto dto);
 }
 //@Mapper(componentModel = "spring")
 //public interface TopPlayerStatsMapper {
